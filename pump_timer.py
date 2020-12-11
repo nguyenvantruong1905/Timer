@@ -10,12 +10,10 @@ api = Api(app)
 scheduler = APScheduler()
 firebase = firebase.FirebaseApplication('https://vietlongpro1999-default-rtdb.firebaseio.com/', None)
 def update_status_onl():
-  firebase.put('/controller/', 'faucet', 0)
   firebase.put('/controller/', 'pump', 1)
 
   print("turn onl")
 def update_status_off():
-  firebase.put('/controller/', 'faucet', 1)
   firebase.put('/controller/', 'pump', 0)
   print("turn off")
 class Timer(Resource):
